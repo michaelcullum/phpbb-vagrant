@@ -19,6 +19,9 @@ The password for everything server-y (root, mysql etc.) is **vagrant**
 
 Login for the phpBB installation: username `admin` // password `adminadmin`
 
+If you want latest composer and not the composer.phar in the phpBB repo,
+just use `composer`, it updates on every provision.
+
 Feel free to adapt .bashrc in this repo with your aliases etc.
 
 phpBB will be accessible from your localmachine at localhost:8000
