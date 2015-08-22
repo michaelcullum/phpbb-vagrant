@@ -15,9 +15,5 @@ keys:
 networking:
     - public: false
 
-folders:
-    - map: phpbb
-      to: /var/www/phpbb
-
 databases:
     - phpbb

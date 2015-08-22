@@ -64,6 +64,8 @@ class Php7dev
       end
     end
 
+    config.vm.synced_folder "phpbb", "/var/www/phpbb", owner: "www-data", group: "vagrant"
+
     # Configure All Of The Configured Databases
     settings["databases"].each do |db|
         config.vm.provision "shell" do |s|

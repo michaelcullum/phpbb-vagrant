@@ -16,7 +16,7 @@ php /var/www/phpbb/phpBB/install_new/phpbbcli.php install ./phpbb-install-config
 
 # Uncomment this to recompile php7 on provisioning (NOTE: Slow). You can also change it
 # to compile other versions of php if you wish (e.g 5.6)
-# /vagrant/makephp 7
+/vagrant/makephp 7
 
 # Set the virtual host up
 sudo rm -rf /etc/nginx/conf.d/default.conf
