@@ -1,15 +1,19 @@
 ## Summary
-This is a customised base for phpBB based upon rasmus' php7dev stuff. It uses his Debian 8 [Vagrant image](https://atlas.hashicorp.com/rasmus/boxes/php7dev) which is preconfigured for testing PHP apps and developing extensions across many versions of PHP.
+This is a customised base for phpBB based upon rasmus' php7dev stuff. It uses his Debian 8 [Vagrant image](https://atlas.hashicorp.com/rasmus/boxes/php7dev) which is preconfigured for testing PHP apps and developing extensions across many versions of PHP. It is customised to be a bit more awesome and install phpBB automatically for you.
 
-## Installation & Important Info
+## Installation
 
-Get vagrant and virtual box
+* Install vagrant and virtual box
 
-`git clone` this repo into a directory of your choosing and `cd` into it
+* `git clone git@github.com:michaelcullum/phpbb-vagrant.git && cd phpbb-vagrant`
 
-Run `git clone git@github.com:phpbb/phpbb phpbb` in that directory
+* `git clone git@github.com:phpbb/phpbb phpbb`
 
-Run `vagrant up`
+* `vagrant up`
+
+## Important Information (Like login details)
+
+If you have issues with `vagrant up` due to not being able to find a box run `vagrant box add rasmus/php7dev`. See https://github.com/rlerdorf/php7dev/blob/master/README.md for more information on the box.
 
 phpBB will install using sqlite automatically.
 
@@ -23,6 +27,10 @@ If you want latest composer and not the composer.phar in the phpBB repo,
 just use `composer`, it updates on every provision.
 
 Feel free to adapt .bashrc in this repo with your aliases etc.
+
+Use `scripts/customize.sh` if you want to run any other shell commands, change
+the default php version from PHP 7 or set it to recompile php7 from source on
+`vagrant provision`.
 
 phpBB will be accessible from your localmachine at localhost:8000
 
