@@ -32,6 +32,12 @@ Use `scripts/customize.sh` if you want to run any other shell commands, change
 the default php version from PHP 7 or set it to recompile php7 from source on
 `vagrant provision`.
 
+PHP7 is likely out of date so going onto the vm and running
+`/vagrant/makephp 7 && /vagrant/newphp 7 debug` is recommended after first
+setting up the vm. You can set it to do this automatically on provision by
+uncommenting lines in `scripts/customize.sh` but it is quite slow (hence
+commented for now).
+
 phpBB will be accessible from your localmachine at localhost:8000
 
 To check stuff out feel free to put the following in `phpbb/phpBB/phpinfo.php`:
