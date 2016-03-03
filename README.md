@@ -7,7 +7,7 @@ This is a customised base for phpBB based upon rasmus' php7dev stuff. It uses hi
 
 * `git clone git@github.com:michaelcullum/phpbb-vagrant.git && cd phpbb-vagrant`
 
-* `git clone git@github.com:phpbb/phpbb phpbb`
+* `git clone git@github.com:phpbb/phpbb.git --branch master phpbb`
 
 * `vagrant up`
 
