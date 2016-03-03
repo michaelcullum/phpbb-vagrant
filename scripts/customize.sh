@@ -26,6 +26,8 @@ sudo cp /vagrant/default.conf /etc/nginx/conf.d/default.conf
 sudo rm -rf /var/www/default/
 sudo ln -sf /var/www/phpbb/phpBB /var/www/default
 
+sudo service nginx reload
+
 # Set to PHP 7 debug mode and restart php-fpm.
 # Adapt this line if you want to set a different deafult php version
 /vagrant/newphp 7 debug
