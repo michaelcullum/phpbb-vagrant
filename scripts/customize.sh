@@ -13,6 +13,7 @@ rm -rf /tmp/phpbb.sqlite3
 rm -rf /var/www/phpbb/phpBB/config.php
 cd /vagrant
 php /var/www/phpbb/phpBB/install/phpbbcli.php install ./phpbb-install-config.yml
+sudo chown -R www-data /tmp/phpbb.sqlite3
 
 # Uncomment this to recompile php7 on provisioning (NOTE: Slow). You can also change it
 # to compile other versions of php if you wish (e.g 5.6)
