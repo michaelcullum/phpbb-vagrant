@@ -3,51 +3,66 @@ This is a customised base for phpBB based upon rasmus' php7dev stuff. It uses hi
 
 ## Installation
 
-* Install vagrant and virtual box
+* Download and install [Vagrant](https://www.vagrantup.com/downloads.html)
+* Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+* Clone this repository to your project:
 
-* `git clone git@github.com:michaelcullum/phpbb-vagrant.git && cd phpbb-vagrant`
+```shell
+git clone git@github.com:michaelcullum/phpbb-vagrant.git && cd phpbb-vagrant
+```
 
-* `git clone git@github.com:phpbb/phpbb.git --branch master phpbb`
+* Clone the phpBB repository to your project:
 
-* `vagrant up`
+```shell
+git clone git@github.com:phpbb/phpbb.git --branch master phpbb
+```
+
+* Start up your new machine
+
+```shell
+vagrant up
+```
+
+* Access phpBB from your local machine at [http://localhost:8000/](http://localhost:8000/)
 
 ## Important Information (Like login details)
 
-If you have issues with `vagrant up` due to not being able to find a box run `vagrant box add rasmus/php7dev`. See https://github.com/rlerdorf/php7dev/blob/master/README.md for more information on the box.
-
-phpBB will install using sqlite automatically.
-
-Run `vagrant provision` and this will kill your db and make a new one
+Login for the phpBB installation:
+* username: **admin**
+* password: **adminadmin**
 
 The password for everything server-y (root, mysql etc.) is **vagrant**
 
-Login for the phpBB installation: username `admin` // password `adminadmin`
+If you have issues with `vagrant up` due to not being able to find a box run `vagrant box add rasmus/php7dev`. See https://github.com/rlerdorf/php7dev/blob/master/README.md for more information on the box.
+
+phpBB will install using Sqlite3 automatically.
+
+Run `vagrant provision` and this will kill your db and make a new one
 
 If you want latest composer and not the composer.phar in the phpBB repo,
 just use `composer`, it updates on every provision.
 
-Feel free to adapt .bashrc in this repo with your aliases etc.
+Feel free to adapt `.bashrc` in this repo with your aliases etc.
 
 Use `scripts/customize.sh` if you want to run any other shell commands, change
-the default php version from PHP 7 or set it to recompile php7 from source on
+the default php version from PHP 7 or set it to recompile PHP7 from source on
 `vagrant provision`.
 
-PHP7 is likely out of date so going onto the vm and running
-`/vagrant/makephp 7 && /vagrant/newphp 7 debug` is recommended after first
-setting up the vm. You can set it to do this automatically on provision by
-uncommenting lines in `scripts/customize.sh` but it is quite slow (hence
-commented for now).
-
-phpBB will be accessible from your localmachine at localhost:8000
+PHP7 is likely out of date and is recommended you update it after setting up the vm. You can set it to do this automatically on provision by uncommenting lines in `scripts/customize.sh` but it is quite slow (hence
+commented for now) or you can do it manually in the vm by running:
+```shell
+vagrant ssh
+/vagrant/makephp 7 && /vagrant/newphp 7 debug
+```
 
 To check stuff out feel free to put the following in `phpbb/phpBB/phpinfo.php`:
 
-```
+```php
 <?php
 phpinfo();
 ```
 
-and navigate to http://localhost:8000/phpinfo.php to check your php settings.
+and navigate to [http://localhost:8000/phpinfo.php](http://localhost:8000/phpinfo.php) to check your php settings.
 
 I've left some relevant notes of rasmus' below. Enjoy!
 
