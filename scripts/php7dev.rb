@@ -14,7 +14,7 @@ class Php7dev
 
     # Configure A Few VirtualBox Settings
     config.vm.provider "virtualbox" do |vb|
-      vb.name = 'php7'
+      vb.name = 'php7dev'
       vb.customize ["modifyvm", :id, "--memory", settings["memory"] ||= "2048"]
       vb.customize ["modifyvm", :id, "--cpus", settings["cpus"] ||= "1"]
       vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
@@ -67,11 +67,13 @@ class Php7dev
     config.vm.synced_folder "phpbb", "/var/www/phpbb", owner: "www-data", group: "vagrant"
 
     # Configure All Of The Configured Databases
-    settings["databases"].each do |db|
-        config.vm.provision "shell" do |s|
-            s.path = "./scripts/create-mysql.sh"
-            s.args = [db]
-        end
+    if settings['databases'].kind_of?(Array)
+      settings["databases"].each do |db|
+          config.vm.provision "shell" do |s|
+              s.path = "./scripts/create-mysql.sh"
+              s.args = [db]
+          end
+      end
     end
 
     # Update Composer On Every Provision
